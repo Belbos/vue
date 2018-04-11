@@ -1,0 +1,24 @@
+<html>
+    <!-- Vue 공식홈페이지 > 조건문과 반복문 > 사용자 입력 핸들링 메세지 바인딩 -->
+    <head>
+        <title>example 6</title>
+    </head>
+
+    <body>
+        <div id="app-6">
+            {{ message }}
+			<br>
+			<input v-model="message"/>
+        </div>
+        <script src="http://unpkg.com/vue@2.4.4/dist/vue.js"></script>
+        <script>
+            var app5 = new Vue({
+                el: '#app-6',
+                data: {
+                    message: '안녕하십니까? 이 텍스트는 똑같이 작동합니다.'
+                },
+				
+            })
+        </script>
+    </body>
+</html>
