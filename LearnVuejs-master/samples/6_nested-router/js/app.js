@@ -3,6 +3,7 @@ var Login = {
     <div>
       Login Section
       <router-view>
+<<<<<<< HEAD
         <form action="/" method="post">
           <div>
               <label for="account">E-mail : </label>
@@ -13,6 +14,9 @@ var Login = {
               <input type="password" id="password">
           </div>
         </form>
+=======
+        
+>>>>>>> cff6e360a4ec07a324d821f771541dca6dee3186
       </router-view>
     </div>
   `,

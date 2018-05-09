@@ -6,7 +6,11 @@
     <ul>
       <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
       <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
+<<<<<<< HEAD
       <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
+=======
+      <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
+>>>>>>> cff6e360a4ec07a324d821f771541dca6dee3186
       <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
     </ul>
     <h2>Ecosystem</h2>
