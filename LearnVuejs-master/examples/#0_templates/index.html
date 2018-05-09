@@ -19,6 +19,13 @@
         <!-- #3 -->
         <button v-on:click="clickBtn">alert</button>
         <!-- <button @click="clickBtn">alert</button> -->
+        <!--<sapn>This will never change: {{* message}}</sapn>>-->
+        <p v-bind:id="uid"></p>
+
+        <!-- #3 -->
+        <button v-on:click="clickBtn2">Show alert</button>
+
+        <button v-on:click="clickBtn3">True False</button>
 
         <!-- #4 -->
         <ul v-if="flag">
@@ -28,7 +35,6 @@
         </ul>
       </section>
     </div>
-
     <script src="js/vendor/vue.js"></script>
     <script src="js/app.js"></script>
   </body>
