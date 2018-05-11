@@ -3,14 +3,11 @@
     <img src="./assets/logo.png">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
+    <button v-on:click="onClick">alert button</button>
     <ul>
       <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
       <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-<<<<<<< HEAD
       <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-=======
-      <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
->>>>>>> cff6e360a4ec07a324d821f771541dca6dee3186
       <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
     </ul>
     <h2>Ecosystem</h2>
@@ -20,17 +17,40 @@
       <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
+    <my-component v-bind:passed-data="message"></my-component>
+    <my-local-component></my-local-component>
   </div>
 </template>
 
 <script>
+var cmp ={
+  template: '<div>local componenet!</div>'
+};
+
 export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      message: '??props???'
     }
+  },
+  methods: {
+    //onClick: function(){alert('Hello');}
+    onClick: function(){this.msg = 'dddd';}
+  },
+  mounted: function() {
+    console.log('mounted');
+    
+  },
+  updated: function(){
+    alert('updated');
+  },
+  components: {
+    'my-local-component' : cmp
   }
+ 
+  
 }
 </script>
 
