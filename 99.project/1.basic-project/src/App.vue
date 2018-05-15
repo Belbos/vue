@@ -1,9 +1,26 @@
 <template>
-  <div>
+  <div id="app">
+
     <div class ="mHeader">
-      <!-- Global Component, Header -->
-      <main-header></main-header>
+        <router-link to="/">
+        <img id = "img_h1" src="./assets/logo.jpg">
+        </router-link>
+
+        <router-link to="/profile">
+          <img align="right" id = "img_h2" src="./assets/profile.jpg">
+        </router-link>
     </div>
+
+    <!-- <div class ="mHeader">
+      <main-header></main-header>
+    </div> -->
+
+    <!-- <div>
+      <router-link to="/mainBody">router</router-link>
+    </div>
+    <div>
+      <router-view></router-view>
+    </div> -->
 
     <!-- <div class ="mBody">
       <main-body></main-body>
@@ -11,14 +28,16 @@
     </div> -->
 
     <div class="mBody">
-      <profile-body></profile-body>
-      <profile-body2></profile-body2>
+      <router-view></router-view>
+      <!-- <profile-body></profile-body>
+      <profile-body2></profile-body2> -->
     </div>
 
     <div class ="mFooter">
       <!-- Global Component, Footer -->
       <main-footer></main-footer>
     </div>
+
   </div>
 </template>
 
@@ -29,13 +48,18 @@
   import ProfileBody from './components/ProfileBody.vue';
   import ProfileBody2 from './components/ProfileBody2.vue';
 
+  // import Vue from 'vue'
+  // import VueRouter from 'vue-router'
+  // Vue.use(VueRouter);
+
+
   export default {
     components: {
       'main-body': MainBody,
       'main-body2': MainBody2,
 
       'profile-body': ProfileBody,
-      'profile-body2': ProfileBody2,
+      'profile-body2': ProfileBody2
     }
   }
 </script>
@@ -127,6 +151,21 @@ img#img_c{
 img#img_h{
   width: 35px;
   height:35px;
+}
+
+
+img#img_h1 {
+  text-align: left;
+  /* padding-right: 60%; */
+  /* margin-right: 60%; */
+}
+img#img_h2 {
+  text-align: right;
+  padding: 10px;
+  /* width: 60px;
+  height:60px; */
+  /* margin-left: 60%; */
+
 }
 
 </style>

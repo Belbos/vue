@@ -13,6 +13,10 @@
         <td colspan="2"><h3 align="left"><strong> 이치형</strong></h3></td>
       </tr>
     </table>
+    <div>
+      
+    </div>
+    <img id = "img_pb" src="../assets/profileBottom.jpg">
   </div>
 </template>
 
