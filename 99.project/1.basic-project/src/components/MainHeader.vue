@@ -1,8 +1,8 @@
 <template>
-  <div class="header">
-    <img id = "img1" src="../assets/logo.jpg">
-    <input type="text" name="account" value="">
-    <img id = "img2" src="../assets/profile.jpg">
+  <div>
+    <img id = "img_h1" src="../assets/logo.jpg">
+    <!-- <input type="text" name="account" value=""> -->
+    <img align="right" id = "img_h2" src="../assets/profile.jpg">
   </div>
 </template>
 
@@ -13,29 +13,20 @@ export default {
 </script>
 
 <style lang="css">
-.header {
-  clear:left;
-  float:left;
-  left:0;
-  top:0px;
-  text-align: center;
-  /* font-size: 12px; */
-  /* color: white; */
-  /* background: #000000; */
-  padding: 10px 0;
-  position: absolute;
-  clear: both;
-  width: 100%;
-  padding-bottom: 50px;
-}
 
-img#img1 {
+
+img#img_h1 {
   text-align: left;
-  padding-right: 100px;
+  /* padding-right: 60%; */
+  /* margin-right: 60%; */
 }
-img#img2 {
-  text-align: left;
-  padding-left: 100px;
+img#img_h2 {
+  text-align: right;
+  padding: 10px;
+  /* width: 60px;
+  height:60px; */
+  /* margin-left: 60%; */
+
 }
 
 </style>
