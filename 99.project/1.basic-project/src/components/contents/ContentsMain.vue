@@ -1,0 +1,74 @@
+<template lang="html">
+  <div>
+    <article id="contents" v-for="todoItem in todoItems" >
+      <h2>
+      <img id = "img_h" src="../../assets/hanwhaDays.jpg"><a>hanwhaDays </a>
+      </h2>
+      <img id = "img_c" :src="todoItem.url">
+      <h3>
+        {{todoItem.text}}
+      </h3>
+    </article>
+  </div>
+</template>
+
+<script>
+export default {
+  data(){
+    return{
+      todoItems:[
+        {url:'src/assets/contents1.jpg', text: 'hanwhadays👋어서와~성화봉! #63빌딩 은 처음이지?네가 온다고해서 불꽃쇼를 준비했어! 😎'},
+        {url:'src/assets/contents2.jpg', text: 'hanwhadays[EVENT :: #쉬어가자그램 해시태그 이벤트]😝금요일엔 쉬어가자그램~ 추운 겨울 #이불밖은위험해 🛌바쁘게 달려온 지금을 잠시 멈추고 나만의 쉬는 순간을 공유해주세요.💕'},
+        {url:'src/assets/contents3.jpg', text: 'hanwhadays무료로 체험 프로그램 할 #금손 모여라~ 👋#오늘의불꽃 #1일1불꽃 👉 #한화예술더하기 #체험프로그램'},
+        {url:'src/assets/contents4.jpg', text: 'hanwhadays[4월의 불꽃 :: #봄이왔나봄 해시태그 이벤트]나를 웃음짓게 하는 따스한 봄볕☀️👉 여러분의 봄을 느낀 순간을 공유해주세요!'},
+        {url:'src/assets/contents5.jpg', text: 'hanwhadays[당첨자 발표] #응원한다그램 이벤트응원과 응원이 모여 #불꽃응원 완성✨'},
+        {url:'src/assets/contents6.jpg', text: 'hanwhadays[당첨자 발표] 4월의 불꽃 :: #봄이왔나봄 이벤트 이 봄의 끝을 잡고~🎶따뜻했던 4월의 봄날을 기억하며!💐'},
+      ]
+    }
+  }
+}
+
+
+</script>
+
+<style>
+#contents {
+text-align: center;
+border-style: solid;
+border-width: thin;
+border-color: rgb(220, 220, 220);
+background-color: rgb(255, 255, 255);
+padding: 10px;
+margin: 0 auto;
+margin-bottom: 50px;
+width: 600px;
+}
+
+img#img_c{
+  width: 600px;
+  height: 600px;
+}
+
+img#img_h{
+  width: 35px;
+  height:35px;
+}
+
+h3{
+  font-weight: normal;
+  text-align: left;
+  margin: 10px;
+}
+
+h2{
+  font-weight: normal;
+  text-align: left;
+  margin: 10px;
+}
+a{
+  margin: 10px;
+  border-bottom: 5px;
+  font-family: sans-serif;
+}
+
+</style>

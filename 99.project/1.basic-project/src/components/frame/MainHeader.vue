@@ -1,8 +1,12 @@
 <template>
   <div>
-    <img id = "img_h1" src="../assets/logo.jpg">
-    <!-- <input type="text" name="account" value=""> -->
-    <img align="right" id = "img_h2" src="../assets/profile.jpg">
+    <router-link to="/">
+    <img id = "img_h1" src="../../assets/logo.jpg">
+    </router-link>
+
+    <router-link to="/profile">
+      <img align="right" id = "img_h2" src="../../assets/profile.jpg">
+    </router-link>
   </div>
 </template>
 

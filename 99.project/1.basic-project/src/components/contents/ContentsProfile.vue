@@ -2,21 +2,19 @@
   <div id="profile">
     <table>
       <tr>
-        <td rowspan="3"><img id = "img_p1" src="../assets/profileBody.jpg"></td>
+        <td rowspan="3"><img id = "img_p1" src="../../assets/profileBody.jpg"></td>
         <td><h1 align="left"> crachi</h1></td>
-        <td><img id = "img_p2" src="../assets/profileEdit.jpg"></td>
+        <td><img id = "img_p2" src="../../assets/profileEdit.jpg"></td>
       </tr>
       <tr>
-        <td colspan="2"><h2 align="left">게시물 0  팔로워 1   팔로우 30</h2></td>
+        <td colspan="2"><h2 align="left">게시물 0  팔로워 1   팔로우 1</h2></td>
       </tr>
       <tr>
         <td colspan="2"><h3 align="left"><strong> 이치형</strong></h3></td>
       </tr>
     </table>
-    <div>
-      
-    </div>
-    <img id = "img_pb" src="../assets/profileBottom.jpg">
+
+    <img id = "img_pb" src="../../assets/profileBottom.jpg">
   </div>
 </template>
 
@@ -40,15 +38,14 @@ img#img_p2{
 
 #profile{
   text-align: center;
-  /* border-style: solid;
-  border-width: thin; */
-  /* border-color: rgb(220, 220, 220); */
-  /* background-color: rgb(255, 255, 255); */
   padding: 10px;
   padding-right: 30%;
   margin: 0 auto;
   margin-bottom: 50px;
-  /* border: 10px; */
    width: 600px;
+}
+
+table{
+  padding-bottom: 60px;
 }
 </style>
