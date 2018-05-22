@@ -30,7 +30,7 @@
 }
 
 .mHeader{
-  padding: 20px;
+  padding: 10px;
   border-bottom-style: solid;
   border-bottom-width: thin;
   border-bottom-color: rgb(220, 220, 220);

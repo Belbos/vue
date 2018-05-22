@@ -1,9 +1,18 @@
 <template lang="html">
   <div>
     <article id="contents" v-for="todoItem in todoItems" >
-      <h2>
-      <img id = "img_h" src="../../assets/hanwhaDays.jpg"><a>hanwhaDays </a>
-      </h2>
+      <table>
+        <tr>
+          <td>
+            <img id = "img_h" src="../../assets/hanwhaDays.jpg">
+          </td>
+          <td>
+            <a>hanwhaDays </a>
+          </td>
+        </tr>
+      </table>
+
+
       <img id = "img_c" :src="todoItem.url">
       <h3>
         {{todoItem.text}}
@@ -66,7 +75,8 @@ h2{
   margin: 10px;
 }
 a{
-  margin: 10px;
+  /* padding: 10px; */
+  margin: 5px;
   border-bottom: 5px;
   font-family: sans-serif;
 }
