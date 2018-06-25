@@ -17,11 +17,29 @@
       <h3>
         {{todoItem.text}}
       </h3>
+
+      <input type="text">
+      <span class="addContainer" v-on:click="">
+        <i class="addBtn fas fa-plus" aria-hidden="true"></i>
+      </span>
+
+      <transition-group name="list" tag="ul">
+        <li v-for="(todoItem, index) in this.storedTodoItems" class="shadow" v-bind:key="todoItem.item">
+          <i class="checkBtn fas fa-check" v-bind:class="{checkBtnCompleted: todoItem.completed}" v-on:click="toggleComplete({todoItem, index})"></i>
+          <span v-bind:class="{textCompleted: todoItem.completed}">{{ todoItem.item }}</span>
+          <span class="removeBtn" v-on:click="removeTodo({todoItem, index})">
+            <i class="removeBtn fas fa-trash-alt"></i>
+          </span>
+        </li>
+      </transition-group>
+
+
     </article>
   </div>
 </template>
 
 <script>
+  import { mapGetters, mapMutations } from 'vuex'
 export default {
   data(){
     return{
@@ -32,11 +50,30 @@ export default {
         {url:'src/assets/contents4.jpg', text: 'hanwhadays[4월의 불꽃 :: #봄이왔나봄 해시태그 이벤트]나를 웃음짓게 하는 따스한 봄볕☀️👉 여러분의 봄을 느낀 순간을 공유해주세요!'},
         {url:'src/assets/contents5.jpg', text: 'hanwhadays[당첨자 발표] #응원한다그램 이벤트응원과 응원이 모여 #불꽃응원 완성✨'},
         {url:'src/assets/contents6.jpg', text: 'hanwhadays[당첨자 발표] 4월의 불꽃 :: #봄이왔나봄 이벤트 이 봄의 끝을 잡고~🎶따뜻했던 4월의 봄날을 기억하며!💐'},
-      ]
-    }
-  }
-}
+      ],
+        newTodoItem: '',
+        showModal: false
+      }
+    },
 
+  methods: {
+    ...mapMutations({
+      removeTodo: 'removeOneItem',
+      toggleComplete: 'toggleOneItem'
+    })
+  },
+  computed: {
+    ...mapGetters({
+      storedTodoItems: 'getTodoItems'
+    }),
+    ...mapMutations({
+      removeTodo: 'removeOneItem',
+      toggleComplete: 'toggleOneItem'
+    })
+  }
+
+
+}
 
 </script>
 
@@ -79,6 +116,15 @@ a{
   margin: 5px;
   border-bottom: 5px;
   font-family: sans-serif;
+}
+
+
+.addContainer {
+  float: right;
+  background: linear-gradient(to right, #6478FB, #8763FB);
+  display: block;
+  width: 3rem;
+  border-radius: 0 5px 5px 0;
 }
 
 </style>
