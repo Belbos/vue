@@ -29,7 +29,7 @@ export const store = new Vuex.Store({
 	mutations: {
 		addOneItem(state, val) {
 		//	console.log(num);
-			const obj = {index : val.num, completed: false, item: val.item};
+			const obj = {index : val.index, completed: false, item: val.item};
       localStorage.setItem(val.item, JSON.stringify(obj));
 			state.todoItems.push(obj);
 		},
