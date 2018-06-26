@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+import { store } from './store.js'
 
 import MainHeader from './components/frame/MainHeader.vue';
 import MainFooter from './components/frame/MainFooter.vue';
@@ -15,5 +16,6 @@ Vue.component('main-body', MainBody);
 new Vue({
   el: '#app',
   router,
+  store,
   render: h => h(App)
 })
