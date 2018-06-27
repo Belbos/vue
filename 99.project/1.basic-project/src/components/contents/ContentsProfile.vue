@@ -46,6 +46,6 @@ img#img_p2{
 }
 
 table{
-  padding-bottom: 60px;
+  /* padding-bottom: 60px; */
 }
 </style>
