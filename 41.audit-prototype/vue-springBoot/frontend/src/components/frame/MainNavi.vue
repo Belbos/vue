@@ -1,5 +1,5 @@
 <template lang="html">
-  <div>
+  <div class="snb">
     <h1 class="logo">
         <a href="../main.html"><strong>윤리경영</strong></a>
         <span>GLOBAL CODE OF CONDUCT</span>
