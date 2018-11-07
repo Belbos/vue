@@ -25,11 +25,14 @@
                 </p>
             </div>       
             <!-- 테스트용 //////-->
-             <div class="article4" v-bind:style="{background:'url(../../images/article3_over.png) 100% 100% no-repeat'}" 
-             
-             >
+             <!-- <div class="article4"> -->
+             <!-- <div class="article4" :style="{'background:'url(../../images/article3_over.png) 100% 100% no-repeat  '}"> -->
+             <div class="article4" :style="{'background': 'url(' + require('../../images/article4_over.png') + ')' + '100% 100% no-repeat'}">
+             <!-- <div class="article4" :style="articleImage"> -->
+            <!-- <div class="article4"> -->
                 <h2>공간테스트</h2>
-                <p>
+                <p>            
+                    {{artidocs.header}}
                     메일 techwin.audit@hanwha.com<br />
                     주소 경상남도 창원시 성산구 창원대로 1204(성주동)<br/> 경영진단팀
                 </p>
@@ -39,11 +42,28 @@
 </template>
 
 <script>
-export default {
 
+            // articleImage : '../../images/article4_over.png'
+            // articleImage : "'background': 'url(' + require('../../images/article4_over.png') + ')' + '100% 100% no-repeat'"
+        
 
-
+export default{
+    data() {
+        return {
+            artidocs:[{
+                header : '사이버경영진단팀소개',
+                main : '사이버 경영진단팀은 고객 여러분의 제보를 신속하고<br/> 공정하게 처리하며 부정이 없는 깨끗하고<br/> 청결한 기업을 만들어 갑니다.'
+            },
+            {
+                header : '부정제보',
+                main : '부정은 고객만족과 주주의 이익을 저해하는 요소입니다. <br/>당신의 소중한 제보를 기다립니다.'
+            }
+            ]
+        }
+    }
 }
+
+
 </script>
 
 <style lang="css">

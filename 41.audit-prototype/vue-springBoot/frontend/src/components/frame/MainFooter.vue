@@ -1,5 +1,5 @@
 <template lang="html">
-  <div id ="footer">
+  <div>
     <span class="logo_footer"><img src="../../images/logo_footer.gif" alt="한화테크윈" /></span>
     <div class="copy">
     	<ul>
@@ -33,7 +33,10 @@
 
 <style lang="css">
 
+
 /* Footer */
+
+    
 #footer .logo_footer{float:left;margin-left:90px;margin-top:0px;}
 #footer .copy{float:left; margin-left:90px;}
 #footer .copy ul{padding-bottom:15px}
@@ -58,5 +61,8 @@ left:860px;}
 #popContent p {font-size:13px;color:#666;line-height:1.5em}
 #popContent h2 {font-size:18px;font-family:'Nanum Gothic Bold';color:#f37421;margin-bottom:8px; padding-top:15px; background:url(../../images/bg_t_bar.png) no-repeat;margin-top:30px}
 #popContent h3 {font-size:16px;font-family:'Nanum Gothic Bold';color:#f37421;margin-bottom:10px; padding-top:15px;}
+
+
+
 
 </style>

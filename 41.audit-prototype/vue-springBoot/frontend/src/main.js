@@ -13,6 +13,10 @@ import MainFooter from './components/frame/MainFooter.vue';
 import MainNavi from './components/frame/MainNavi.vue';
 import MainBody from './components/frame/MainBody.vue';
 
+import './css/common.css';
+// import './css/iframe.css';
+
+
 Vue.component('main-header', MainHeader);
 Vue.component('main-footer', MainFooter);
 Vue.component('main-body', MainBody);

@@ -1,5 +1,5 @@
 <template>
-    <div id="container" class="main">
+    <div class="main">
         <div id="mtop">
             <div class="visual">
                 <img src="../../images/main_visual.jpg" width="426" height="67" alt="GLOBAL CODE OF CONDUCT HANWHA AEROSPACE">
@@ -35,6 +35,7 @@ export default {
     position:relative;
     float:right;
     width:718px;
+    margin-top:50px
     }
 .main .visual{
     position:absolute;

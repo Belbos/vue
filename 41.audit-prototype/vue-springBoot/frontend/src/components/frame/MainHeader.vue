@@ -15,6 +15,17 @@ export default {
 
 <style lang="css">
 
+#header{
+  position:relative;
+  overflow:hidden;
+  border-top:1px solid #efefef;
+  /* margin-bottom:30px;
+  padding-bottom:20px; */
+  font-weight:normal
+  }
 
+/* #header{position:relative;overflow:hidden;border-top:1px solid #efefef;padding-bottom:91px;font-weight:normal} */
+
+/* #header{background:url(../../images/bg_sub.png) 100% 0 no-repeat} */
 
 </style>
