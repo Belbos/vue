@@ -27,16 +27,14 @@
             <!-- 테스트용 //////-->
              <!-- <div class="article4"> -->
              <!-- <div class="article4" :style="{'background:'url(../../images/article3_over.png) 100% 100% no-repeat  '}"> -->
-             <div class="article4" :style="{'background': 'url(' + require('../../images/article4_over.png') + ')' + '100% 100% no-repeat'}">
-             <!-- <div class="article4" :style="articleImage"> -->
-            <!-- <div class="article4"> -->
+             <!-- <div class="article4" :style="{'background': 'url(' + require('../../images/article4_over.png') + ')' + '100% 100% no-repeat'}">
                 <h2>공간테스트</h2>
                 <p>            
                     {{artidocs.header}}
                     메일 techwin.audit@hanwha.com<br />
                     주소 경상남도 창원시 성산구 창원대로 1204(성주동)<br/> 경영진단팀
                 </p>
-            </div>  
+            </div>   -->
             <!-- ////////////// -->
         </div>
 </template>

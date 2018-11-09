@@ -4,69 +4,70 @@
             <tr>
                 <td bgcolor="#FFFFFF"> 
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                        <!-- <FORM NAME="UFNINSERT" method="post"> -->
-                        <tr> 
-                            <td>
-                                <div class="bundle">
-                                    <h2>제보하기</h2>
-                                    <table cellspacing="0" class="tbl_frm">					
-                                        <tr> 
-                                            <th><label for="tle_form">회사</label></th>
-                                            <td width="90%" height="20"> 
-                                                <select name="COMPANY" class="i_txt">
-                                                    <option value="S" selected>선택</option>
-                                                    <option value="B">에어로스페이스, 지상방산, 파워시스템</option>
-                                                    <option value="M">테크윈, 정밀기계</option>
-                                                </select>  
-                                            </td>  			
-                                        </tr>			
-                                        <tr> 
-                                            <th><label for="tle_form">제목</label></th>
-                                            <td width="90%" height="20"> 
-                                                <input type="text" name="TITLE" size="85" class="i_txt w95" MAXLENGTH=80>
+                      <!-- <form v-on:submint="unfairMail" action="/submit" method="post"> -->
+                      <form id="myForm" >
+                            <tr> 
+                                <td>
+                                    <div class="bundle">
+                                        <h2>제보하기</h2>
+                                        <table cellspacing="0" class="tbl_frm">					
+                                            <tr> 
+                                                <th><label for="tle_form">회사</label></th>
+                                                <td width="90%" height="20"> 
+                                                    <select name="COMPANY" class="i_txt sel" v-model="company">
+                                                        <option value="S" selected>선택</option>
+                                                        <option value="B">에어로스페이스, 지상방산, 파워시스템</option>
+                                                        <option value="M">테크윈, 정밀기계</option>
+                                                    </select>  
+                                                </td>  			
+                                            </tr>			
+                                            <tr> 
+                                                <th><label for="tle_form">제목</label></th>
+                                                <td width="90%" height="20"> 
+                                                    <input type="text" name="TITLE" size="85" class="i_txt w95" MAXLENGTH=80 v-model="title">
+                                                </td>
+                                            </tr>
+                                            <tr> 
+                                                <th><label for="area_form">내용</label></th>
+                                                <td rowspan="2" height="20" valign="top"> 
+                                                    <textarea name="CONTENT" rows="8" cols="84" class="skin i_txt w95" v-model="content"></textarea>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr> 
+                                <td>
+                                    <div class="bundle">
+                                        <h2>제보자정보</h2>
+                                        <table cellpadding="0" cellspacing="0" class="tbl_frm">
+                                            <tr> 
+                                            <th><label for="name_form">이름</label></th>
+                                            <td> 
+                                                <input type="text" name="NAME" size="10" class="i_txt" MAXLENGTH=30 v-model="name">
+                                            </td>  
+                                            <th><label for="part_form">부서명</label></th>
+                                            <td> 
+                                                <input type="text" name="PART" size="20" class="i_txt" MAXLENGTH=30 v-model="part">
                                             </td>
-                                        </tr>
-                                        <tr> 
-                                            <th><label for="area_form">내용</label></th>
-                                            <td rowspan="2" height="20" valign="top"> 
-                                                <textarea name="CONTENT" rows="8" cols="84" class="skin i_txt w95"></textarea>
+                                            <th><label for="phone_form">연락처</label></th>
+                                            <td> 
+                                            <input type="text" name="TEL" size="25" class="i_txt" MAXLENGTH=20 v-model="tel">
                                             </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </td>
-                        </tr>
-                                <tr> 
-                                    <td>
-                                        <div class="bundle">
-                                            <h2>제보자정보</h2>
-                                            <table cellpadding="0" cellspacing="0" class="tbl_frm">
-                                                <tr> 
-                                                <th><label for="name_form">이름</label></th>
-                                                <td> 
-                                                    <input type="text" name="NAME" size="10" class="i_txt" MAXLENGTH=30 >
-                                                </td>  
-                                                <th><label for="part_form">부서명</label></th>
-                                                <td> 
-                                                    <input type="text" name="PART" size="20" class="i_txt" MAXLENGTH=30>
-                                                </td>
-                                                <th><label for="phone_form">연락처</label></th>
-                                                <td> 
-                                                <input type="text" name="TEL" size="25" class="i_txt" MAXLENGTH=20>
-                                                </td>
-                                                </tr>
-                                                <tr> 
-                                                <th><label for="email_form">이메일</label></th>
-                                                <td colspan="5"> 
-                                                    <input type="text" name="EMAIL" size="50" class="i_txt" MAXLENGTH=40>
-                                                </td>
-                                                </tr>
+                                            </tr>
+                                            <tr> 
+                                            <th><label for="email_form">이메일</label></th>
+                                            <td colspan="5"> 
+                                                <input type="text" name="EMAIL" size="50" class="i_txt" MAXLENGTH=40 v-model="email">
+                                            </td>
+                                            </tr>
 
-                                            </table>
-                                        </div>
-                                    </td>
-                                </tr>
-                        <!-- </FORM>  -->
+                                        </table>
+                                    </div>
+                                </td>
+                             </tr>
+                        </form> 
                     </table>
                 </td>
             </tr>
@@ -95,8 +96,11 @@
             <tr>
                 <td bgcolor="#FFFFFF"> 
                     <ul class="frm_btm_area">
-                        <li><span class="re_btn"><a href="#" OnClick="Javascript:window.location.reload();">다시쓰기</a></span></li>
-                        <li><span class="send_btn"><a href="#" OnClick="Javascript:insert_GO();">제보하기</a></span></li>
+                        <li><span class="re_btn"><a href="#" OnClick="">다시쓰기</a></span></li>
+                        <li>
+                            <!-- <span class="send_btn"><a href="#" OnClick="">제보하기</a></span> -->
+                            <input type="submit" value="Submit">
+                            </li>
                     </ul>
                 </td>
             </tr>
@@ -106,11 +110,30 @@
 
 <script>
 
+export default {
+    data(){
+      return{
+        company: '',
+        title: '',
+        content: '',
+        name: '',
+        part: '',
+        tel: '',
+        email: ''
+      }  
+    }   
+}
+
+
+
+
 </script>
 
 <style lang="css">
 
-.i_txt {border:1px solid #000; padding:4px; font-size:8px; border-color:#dfdfdf #eee #eee #dfdfdf}
+.i_txt {border:1px solid #000; padding:4px;  font-size:12px; border-color:#dfdfdf #eee #eee #dfdfdf}
+/* html:first-child select{height:22px;padding-right:6px} */
 
+.sel{height: 24px}
 
 </style>
