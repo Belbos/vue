@@ -9,12 +9,17 @@
     <ul class="gnb">
         <li>
             <router-link to="/sub/introduce/index">
-                <a>경영진단팀소개</a>
+                <a>{{ $t("navi.경영진단팀소개")}}</a>
             </router-link>
         </li>
-        <li>        
+        <li v-if="$i18n.locale=='ko'">        
             <router-link to="/sub/unfairness/index">      
-                <a>부정제보</a>       
+                <a>{{ $t("navi.부정제보")}}</a>       
+            </router-link>        
+        </li>
+         <li v-if="$i18n.locale=='en'">        
+            <router-link to="/sub/unfairness/index_en">      
+                <a>{{ $t("navi.부정제보")}}</a>       
             </router-link>        
         </li>
     </ul>    

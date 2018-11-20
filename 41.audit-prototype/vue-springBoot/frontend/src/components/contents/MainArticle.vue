@@ -1,66 +1,40 @@
 <template>
  <div class="main_section">      
            <div class="article1">  
-             <h2>사이버경영진단팀소개</h2>
+             <h2>{{ $t("main.사이버경영진단팀소개")}}</h2>
                 <p>
-                    사이버 경영진단팀은 고객 여러분의 제보를 신속하고<br /> 
-                    공정하게 처리하며 부정이 없는 깨끗하고<br /> 청결한 기업을 만들어 갑니다.
+                    {{ $t("main.사이버경영진단팀소개_내용1")}}<br /> 
+                    {{ $t("main.사이버경영진단팀소개_내용2")}}<br /> 
+                    {{ $t("main.사이버경영진단팀소개_내용3")}}
                 </p>
-                <span class="btn2"><a href="/introduce/index_introduce.asp">바로가기</a></span>
+                <span class="btn2"><a href="/introduce/index_introduce.asp">{{ $t("main.바로가기")}}</a></span>
            </div>
 
             <div class="article2">
-                <h2>부정제보</h2>
+                <h2>{{ $t("main.부정제보")}}</h2>
                 <p>
-                    부정은 고객만족과 주주의 이익을 저해하는 요소입니다.<br />
-                    당신의 소중한 제보를 기다립니다.
+                    {{ $t("main.부정제보_내용1")}}<br />
+                    {{ $t("main.부정제보_내용2")}}<br />
+                    {{ $t("main.부정제보_내용3")}}<br />
+                    {{ $t("main.부정제보_내용4")}}<br />
+                    {{ $t("main.부정제보_내용5")}}<br />
+                    {{ $t("main.부정제보_내용6")}}<br />
+                    {{ $t("main.부정제보_내용7")}}<br />
                 </p>
-                <span class="btn2"><a href="/unfairness/index_unfairness.asp">바로가기</a></span>
+                <span class="btn2"><a href="/unfairness/index_unfairness.asp">{{ $t("바로가기")}}</a></span>
             </div>        
             <div class="article3">
-                <h2>연락처</h2>
+                <h2>{{ $t("main.연락처")}}</h2>
                 <p>
-                    메일 techwin.audit@hanwha.com<br />
-                    주소 경상남도 창원시 성산구 창원대로 1204(성주동)<br/> 경영진단팀
+                    {{ $t("main.연락처_내용1")}}<br />
+                    {{ $t("main.연락처_내용2")}}<br/>
+                    {{ $t("main.연락처_내용3")}}
                 </p>
             </div>       
-            <!-- 테스트용 //////-->
-             <!-- <div class="article4"> -->
-             <!-- <div class="article4" :style="{'background:'url(../../images/article3_over.png) 100% 100% no-repeat  '}"> -->
-             <!-- <div class="article4" :style="{'background': 'url(' + require('../../images/article4_over.png') + ')' + '100% 100% no-repeat'}">
-                <h2>공간테스트</h2>
-                <p>            
-                    {{artidocs.header}}
-                    메일 techwin.audit@hanwha.com<br />
-                    주소 경상남도 창원시 성산구 창원대로 1204(성주동)<br/> 경영진단팀
-                </p>
-            </div>   -->
-            <!-- ////////////// -->
         </div>
 </template>
 
 <script>
-
-            // articleImage : '../../images/article4_over.png'
-            // articleImage : "'background': 'url(' + require('../../images/article4_over.png') + ')' + '100% 100% no-repeat'"
-        
-
-export default{
-    data() {
-        return {
-            artidocs:[{
-                header : '사이버경영진단팀소개',
-                main : '사이버 경영진단팀은 고객 여러분의 제보를 신속하고<br/> 공정하게 처리하며 부정이 없는 깨끗하고<br/> 청결한 기업을 만들어 갑니다.'
-            },
-            {
-                header : '부정제보',
-                main : '부정은 고객만족과 주주의 이익을 저해하는 요소입니다. <br/>당신의 소중한 제보를 기다립니다.'
-            }
-            ]
-        }
-    }
-}
-
 
 </script>
 

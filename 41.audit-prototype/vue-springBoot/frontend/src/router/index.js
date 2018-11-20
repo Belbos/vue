@@ -8,6 +8,7 @@ import Sub from '@/components/contents/Sub.vue';
 import Intro from '@/components/contents/SubIntro.vue';
 import Unfair from '@/components/contents/SubUnfair.vue';
 import UnfairIndex from '@/components/contents/SubUnfairIndex.vue';
+import UnfairIndexEn from '@/components/contents/SubUnfairIndex_en.vue';
 import UnfairReport from '@/components/contents/SubUnfairReport.vue'
 
 export default new Router({
@@ -33,6 +34,10 @@ export default new Router({
             { 
               path:'index', 
               component: UnfairIndex 
+            },
+            { 
+              path:'index_en', 
+              component: UnfairIndexEn
             },
             { 
               path:'report', 

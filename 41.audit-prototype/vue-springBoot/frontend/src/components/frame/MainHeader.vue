@@ -1,7 +1,8 @@
 <template>
   <div id ="header">
     <ul class="tnb">
-			<li><a href="https://audit.hanwhaaerospace.com:2443/"><strong>ENG</strong></a></li>
+			<li><a href="#" v-if="$i18n.locale=='ko'" v-on:click.prevent="handleClick_changeLanguage('en')"><strong>ENG</strong></a></li>
+      <li><a href="#" v-if="$i18n.locale=='en'" v-on:click.prevent="handleClick_changeLanguage('ko')"><strong>KOR</strong></a></li>
 			<li class="last"><a href="/sitemap/index_sitemap.asp"><strong>SITEMAP</strong></a></li>
     </ul>
   </div>
@@ -9,8 +10,12 @@
 
 <script>
 export default {
-
-}
+    methods: {
+      handleClick_changeLanguage(lang) {
+        this.$i18n.locale = lang;
+      }
+    }
+  }
 </script>
 
 <style lang="css">
