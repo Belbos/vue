@@ -1,7 +1,7 @@
 <template>
   <section class="content">
     <row>
-      <div class="col-md-3">
+      <div class="col-md-5">
         <div class="box">
           <!-- <div class="box-header with-border">
             <h3 class="box-title">Latest Orders</h3>
@@ -11,54 +11,24 @@
           </div>
         </div>
       </div>
-      <div class="col-md-3">
-        <div class="box">
-          <div class="box-body">  
-            <p class='text-center'>
-              <strong>월별 반출입 현황</strong>
-            </p>
-            <va-chart
-              :chart-config='barChartConfig'
-            >
-            </va-chart>
-          </div> 
-        </div>   
-      </div>
-      
-      <div class="col-md-3">
-        <div class="box">
-          <div class="box-body">  
-            <p class='text-center'>
-              <strong>종류별 비율</strong>
-            </p>
-            <va-chart
-              :chart-config='doughnutChartConfig'
-            >
-            </va-chart>
-          </div>              
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="box">
-          <div class="box-body">  
-            <p class='text-center'>
-              <strong>오탐률</strong>
-            </p>
-            <va-chart
-              :chart-config='doughnutChartConfig'
-            >
-            </va-chart>
-          </div>              
-        </div>
-      </div>
-
-    </row>
-    <row>
-      <div class="col-md-8">
+      <div class="col-md-5">
         <div class="box">
           <div class="box-header with-border">
-            <h3 class="box-title">일자별리스트</h3>
+            <h3 class="box-title"><strong>미리보기</strong></h3>
+          </div>
+         <div class="box-body">
+          <img src="../static/img/photo1.png" class="img-responsive pad">
+         </div>
+        </div>  
+      </div>
+     
+     
+    </row>
+    <row>
+      <div class="col-md-12">
+        <div class="box">
+          <div class="box-header with-border">
+            <h3 class="box-title"><strong>일자별리스트</strong></h3>
           </div>
          <div class="box-body">
             <div class="table-responsive">
@@ -127,23 +97,60 @@
           <!-- /.box-body -->
         </div>  
       </div>
+      
+    </row>
+    <row>
+       <div class="col-md-4">
+        <div class="box">
+          <div class="box-body">  
+            <p class='text-center'>
+              <strong>월별 반출입 현황</strong>
+            </p>
+            <va-chart
+              :chart-config='barChartConfig'
+            >
+            </va-chart>
+          </div> 
+        </div>   
+      </div>
+      
       <div class="col-md-4">
         <div class="box">
-          <div class="box-header with-border">
-            <h3 class="box-title">미리보기</h3>
-          </div>
-         <div class="box-body">
-          <img src="../static/img/photo1.png" class="img-responsive pad">
-         </div>
-        </div>  
+          <div class="box-body">  
+            <p class='text-center'>
+              <strong>종류별 비율</strong>
+            </p>
+            <va-chart
+              :chart-config='doughnutChartConfig'
+            >
+            </va-chart>
+          </div>  
+        </div>               
+      </div>
+
+      <div class="col-md-4">  
+        <div class="box">
+          <div class="box-body">  
+            <p class='text-center'>
+              <strong>오탐률</strong>
+            </p>
+            <va-chart
+              :chart-config='doughnutChartConfig'
+            >
+            </va-chart>
+          </div>              
+        </div>
       </div>
     </row>
   </section>
 </template>
 
 <script>
-import VACalendar from 'widgets/VACalendar.vue'
+// import VACalendar from 'widgets/VACalendar.vue'
 import VAChart from 'components/VAChart'
+
+// import FunctionalCalendar from 'vue-functional-calendar'
+import FunctionalCalendar from 'components/FNCalendar.vue'
 
 export default {
   name: 'hello',
@@ -155,7 +162,7 @@ export default {
       barChartConfig: {
         type: 'bar',
         data: {
-          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+          labels: ['January', 'February', 'March', 'April'],
           datasets: [
             {
               label: 'My First dataset',
@@ -176,7 +183,7 @@ export default {
                 'rgba(255, 159, 64, 1)'
               ],
               borderWidth: 1,
-              data: [65, 59, 80, 81, 56, 55, 40]
+              data: [65, 59, 80, 81]
             }
           ]
         },
@@ -231,7 +238,7 @@ export default {
     }
   },
   components: {
-    'va-calendar': VACalendar,
+    'va-calendar': FunctionalCalendar,
     'va-chart': VAChart
   }
 }

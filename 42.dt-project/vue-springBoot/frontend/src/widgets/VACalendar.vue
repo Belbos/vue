@@ -6,8 +6,7 @@
 
       <h3 class="box-title">Calendar</h3>
       <!-- tools box -->
-      <div class="pull-right box-tools">
-        <!-- button with a dropdown -->
+      <!-- <div class="pull-right box-tools">
         <div class="btn-group">
           <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">
             <i class="fa fa-bars"></i></button>
@@ -22,7 +21,7 @@
         </button>
         <button type="button" class="btn btn-success btn-sm" data-widget="remove"><i class="fa fa-times"></i>
         </button>
-      </div>
+      </div> -->
       <!-- /. tools -->
     </div>
     <!-- /.box-header -->
@@ -55,6 +54,12 @@ export default {
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  */
+
+a{
+  color:rgb(70, 68, 68);
+}
+
+
 .ui-datepicker {
   padding: 4px;
   border-radius: 4px;
