@@ -40,6 +40,9 @@
       <ul>
         <li>General Elements</li>
       </ul>
+      <!-- <li v-for="(user,index) in users" :key="user.id"> -->
+         {{users}}
+      <!-- </li> -->
     </div>
   </div>
 </template>
@@ -51,7 +54,9 @@ export default {
     return {
       msgHello: 'Hello',
       msgBye: 'Bye',
-      loading: false
+      loading: false,
+      msg: 'Welcome to Your Vue.js App',
+      users: []
     }
   },
   methods: {
@@ -61,6 +66,11 @@ export default {
         this.loading = !this.loading
       }, 1000)
     }
+  },
+  created () {
+    this.$http.get('/api/users').then(resp => {
+      this.users = resp.data.response
+    })
   }
 }
 </script>

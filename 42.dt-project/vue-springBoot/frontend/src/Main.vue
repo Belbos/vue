@@ -1,7 +1,7 @@
 <template>
   <section class="content">
     <row>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="box">
           <!-- <div class="box-header with-border">
             <h3 class="box-title">Latest Orders</h3>
@@ -11,14 +11,11 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="box">
-          <div class="box-header with-border">
-            <h3 class="box-title">Latest Orders</h3>
-          </div>
           <div class="box-body">  
             <p class='text-center'>
-              <strong>Test Bar Chart</strong>
+              <strong>월별 반출입 현황</strong>
             </p>
             <va-chart
               :chart-config='barChartConfig'
@@ -27,97 +24,101 @@
           </div> 
         </div>   
       </div>
-      <div class="col-md-4">
+      
+      <div class="col-md-3">
         <div class="box">
-          <div class="box-header with-border">
-            <h3 class="box-title">Latest Orders</h3>
-          </div>
           <div class="box-body">  
             <p class='text-center'>
-              <strong>Test Doughnut Chart</strong>
+              <strong>종류별 비율</strong>
             </p>
             <va-chart
               :chart-config='doughnutChartConfig'
             >
             </va-chart>
-          </div>  
+          </div>              
         </div>
       </div>
+
+      <div class="col-md-3">
+        <div class="box">
+          <div class="box-body">  
+            <p class='text-center'>
+              <strong>오탐률</strong>
+            </p>
+            <va-chart
+              :chart-config='doughnutChartConfig'
+            >
+            </va-chart>
+          </div>              
+        </div>
+      </div>
+
     </row>
     <row>
       <div class="col-md-8">
         <div class="box">
           <div class="box-header with-border">
-            <h3 class="box-title">Latest Orders</h3>
+            <h3 class="box-title">일자별리스트</h3>
           </div>
          <div class="box-body">
             <div class="table-responsive">
               <table class="table no-margin">
                 <thead>
                 <tr>
-                  <th>Order ID</th>
-                  <th>Item</th>
-                  <th>Status</th>
-                  <th>Popularity</th>
+                  <th>일시</th>
+                  <th>사업장</th>
+                  <th>검출항목</th>
+                  <th>항목수</th>
+                  <th>경로</th>
+                  <th>적중여부</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                  <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                  <td>Call of Duty IV</td>
-                  <td><span class="label label-success">Shipped</span></td>
-                  <td>
-                    <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
-                  </td>
+                  <td>2018/10/18 13:00:32</td>
+                  <td>판교</td>
+                  <td>노트북 가방</td>
+                  <td> 1 </td>
+                  <td> /image/20181018/pan/<br/>laptop/laptop.jpg </td>
+                  <td> Y/N </td>
                 </tr>
-                <tr>
-                  <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                  <td>Samsung Smart TV</td>
-                  <td><span class="label label-warning">Pending</span></td>
-                  <td>
-                    <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
-                  </td>
+                
+                 <tr>
+                  <td>2018/10/18 13:00:32</td>
+                  <td>판교</td>
+                  <td>노트북 가방</td>
+                  <td> 1 </td>
+                  <td> /image/20181018/pan/<br/>laptop/laptop.jpg </td>
+                  <td> Y/N </td>
                 </tr>
-                <tr>
-                  <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                  <td>iPhone 6 Plus</td>
-                  <td><span class="label label-danger">Delivered</span></td>
-                  <td>
-                    <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
-                  </td>
+
+                 <tr>
+                  <td>2018/10/18 13:00:32</td>
+                  <td>판교</td>
+                  <td>노트북 가방</td>
+                  <td> 1 </td>
+                  <td> /image/20181018/pan/<br/>laptop/laptop.jpg </td>
+                  <td> Y/N </td>
                 </tr>
-                <tr>
-                  <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                  <td>Samsung Smart TV</td>
-                  <td><span class="label label-info">Processing</span></td>
-                  <td>
-                    <div class="sparkbar" data-color="#00c0ef" data-height="20">90,80,-90,70,-61,83,63</div>
-                  </td>
+              
+                 <tr>
+                  <td>2018/10/18 13:00:32</td>
+                  <td>판교</td>
+                  <td>노트북 가방</td>
+                  <td> 1 </td>
+                  <td> /image/20181018/pan/<br/>laptop/laptop.jpg </td>
+                  <td> Y/N </td>
                 </tr>
-                <tr>
-                  <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                  <td>Samsung Smart TV</td>
-                  <td><span class="label label-warning">Pending</span></td>
-                  <td>
-                    <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
-                  </td>
+
+                   <tr>
+                  <td>2018/10/18 13:00:32</td>
+                  <td>판교</td>
+                  <td>노트북 가방</td>
+                  <td> 1 </td>
+                  <td> /image/20181018/pan/<br/>laptop/laptop.jpg </td>
+                  <td> Y/N </td>
                 </tr>
-                <tr>
-                  <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                  <td>iPhone 6 Plus</td>
-                  <td><span class="label label-danger">Delivered</span></td>
-                  <td>
-                    <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                  <td>Call of Duty IV</td>
-                  <td><span class="label label-success">Shipped</span></td>
-                  <td>
-                    <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
-                  </td>
-                </tr>
+
                 </tbody>
               </table>
             </div>
@@ -129,10 +130,10 @@
       <div class="col-md-4">
         <div class="box">
           <div class="box-header with-border">
-            <h3 class="box-title">Latest Orders</h3>
+            <h3 class="box-title">미리보기</h3>
           </div>
          <div class="box-body">
-          <img src="../../static/img/photo1.png" class="img-responsive pad">
+          <img src="../static/img/photo1.png" class="img-responsive pad">
          </div>
         </div>  
       </div>
@@ -141,8 +142,8 @@
 </template>
 
 <script>
-import VACalendar from '../widgets/VACalendar.vue'
-import VAChart from '../components/VAChart'
+import VACalendar from 'widgets/VACalendar.vue'
+import VAChart from 'components/VAChart'
 
 export default {
   name: 'hello',

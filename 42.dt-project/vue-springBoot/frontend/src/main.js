@@ -12,6 +12,8 @@ import axios from 'axios'
 
 Vue.prototype.$bus = EventBus
 Vue.prototype.$http = axios
+Vue.config.productionTip = false
+// Vue.prototype.$http = axios
 
 /* eslint-disable no-new */
 new Vue({

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import Hello from 'components/Hello.vue'
-import Main from 'components/Main.vue'
+import Hello from 'components/Hello.vue'
+import Main from '../Main.vue'
 import Sample from 'components/Sample.vue'
 import DashboardV1 from 'examples/Dashboard.v1.vue'
 import DashboardV2 from 'examples/Dashboard.v2.vue'
@@ -34,11 +34,11 @@ export default new Router({
       name: 'Main',
       component: Main
     },
-    // {
-    //   path: '/',
-    //   name: 'Hello',
-    //   component: Hello
-    // },
+    {
+      path: '/main',
+      name: 'Hello',
+      component: Hello
+    },
     {
       path: '/sample',
       name: 'Sample',

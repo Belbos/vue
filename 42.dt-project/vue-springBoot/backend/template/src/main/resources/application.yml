@@ -3,18 +3,7 @@ spring:
     active: dev
   timerName: exampleTimer
   datasource:
-    # driver-class-name: oracle.jdbc.driver.OracleDriver
-    # url: jdbc:postgresql://172.16.20.235:5432
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://172.16.20.235:5432/postgres
-    username: postgres
-    password: 5gksghk
-  jpa:
-    database: POSTGRESQL
-    show-sql: true
-    hibernate:
-     ddl-auto: create-drop
-    generate-ddl: true
+    driver-class-name: oracle.jdbc.driver.OracleDriver
 ---
 # mybatis:
 #   mapper-locations: classpath:mapper/**/*.xml
@@ -23,28 +12,28 @@ spring:
 #     aggressiveLazyLoading: false
 #     mapUnderscoreToCamelCase: true
 
-# spring:
-#   profiles: local
-#   task:
-#     fixedDelay: 1000
-#     name: localTask
-#   datasource:
-#     url: jdbc:oracle:thin:@localhost:1521:xe
-#     username: vuetest
-#     password: vuetest
-# ---
-# spring:
-#   profiles: dev
-#   task:
-#     fixedDelay: 5000
-#     name: devTask
-#   datasource:
-#     url: jdbc:oracle:thin:@localhost:1521:xe
-#     username: vuetest
-#     password: vuetest
-# ---
-# server:
-#   port: 3030
+spring:
+  profiles: local
+  task:
+    fixedDelay: 1000
+    name: localTask
+  datasource:
+    url: jdbc:oracle:thin:@55.101.200.103:1531:BSPD
+    username: stwbsp
+    password: wjstk12!
+---
+spring:
+  profiles: dev
+  task:
+    fixedDelay: 5000
+    name: devTask
+  datasource:
+    url: jdbc:oracle:thin:@55.101.200.103:1531:BSPD
+    username: stwbsp
+    password: wjstk12!
+---
+server:
+  port: 3030
 
 
 # ---

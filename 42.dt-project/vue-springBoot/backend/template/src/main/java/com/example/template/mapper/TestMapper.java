@@ -9,7 +9,8 @@ import org.apache.ibatis.annotations.Select;
 
 @Mapper 
 public interface TestMapper { 
-	@Select("SELECT DOC_NUM,TEXT FROM INSTA") 
+	// @Select("SELECT DOC_NUM,TEXT FROM INSTA")
+	@Select("SELECT * FROM MAIN_RESULTMODEL")  
 	public List<UserVO> readHome(); 
 }
 
