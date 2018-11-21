@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Hello from 'components/Hello.vue'
+import HelloMain from 'components/HelloMain.vue'
 import Main from '../Main.vue'
 import Sample from 'components/Sample.vue'
 import DashboardV1 from 'examples/Dashboard.v1.vue'
@@ -33,6 +34,11 @@ export default new Router({
       path: '/',
       name: 'Main',
       component: Main
+    },
+    {
+      path: '/hellomain',
+      name: 'HelloMain',
+      component: HelloMain
     },
     {
       path: '/main',
