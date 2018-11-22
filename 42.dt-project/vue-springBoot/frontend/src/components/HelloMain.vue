@@ -1,17 +1,18 @@
 <template>
     <div id="hellomain">
         <div class="component-wrapper">
-            <hello-main></hello-main>
+            <!-- <hello-main></hello-main> -->
+            <router-view></router-view>
         </div>
     </div>
 </template>
 <script>
-import Hellomain from './SplashScreen.vue'
-export default {
-  components: {
-    'hello-main': Hellomain
-  }
-}
+// import Hellomain from './SplashScreen.vue'
+// export default {
+//   components: {
+//     'hello-main': Hellomain
+//   }
+// }
 </script>
 <style lang="scss" scoped>
 #hellomain {

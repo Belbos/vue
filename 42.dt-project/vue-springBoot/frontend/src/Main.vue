@@ -1,7 +1,7 @@
 <template>
   <section class="content">
     <row>
-      <div class="col-md-5">
+      <div class="col-md-4">
         <div class="box">
           <!-- <div class="box-header with-border">
             <h3 class="box-title">Latest Orders</h3>
@@ -11,7 +11,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-4">
         <div class="box">
           <div class="box-header with-border">
             <h3 class="box-title"><strong>미리보기</strong></h3>

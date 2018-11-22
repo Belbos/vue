@@ -53,14 +53,11 @@ export default {
       console.log('??')
       this.show = true
       setTimeout(() => {
-        this.$router.push('/dashboard')
+        this.$router.push('/main')
       }, 2000)
     },
     customHook: function (el) {
       console.log('on render')
-    },
-    foo: function () {
-      return <icon name="spinner" />
     }
   },
   beforeCreate: function () {
@@ -82,4 +79,8 @@ export default {
 
 <style lang="scss" scoped>
 @import "../style/designLoginPage.scss";
+
+.wrapper {
+  background: white;
+}
 </style>
