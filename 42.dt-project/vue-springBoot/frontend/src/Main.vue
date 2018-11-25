@@ -1,34 +1,21 @@
 <template>
   <section class="content">
     <row>
-      <div class="col-md-4">
-        <div class="box">
-          <!-- <div class="box-header with-border">
-            <h3 class="box-title">Latest Orders</h3>
-          </div> -->
-          <div class="box-body">  
-           <va-calendar></va-calendar>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="box">
+      <div class="col-md-7">
+        <div class="box direct-chat box-primary direct-chat-primary">
           <div class="box-header with-border">
-            <h3 class="box-title"><strong>미리보기</strong></h3>
-          </div>
-         <div class="box-body">
-          <img src="../static/img/photo1.png" class="img-responsive pad">
-         </div>
-        </div>  
-      </div>
-     
-     
-    </row>
-    <row>
-      <div class="col-md-12">
-        <div class="box">
-          <div class="box-header with-border">
-            <h3 class="box-title"><strong>일자별리스트</strong></h3>
+            <div class="col-md-4">
+              <h3 class="box-title"><strong>일자별리스트</strong>
+              </h3> 
+            </div>
+            <div class="col-md-7">
+              <strong>
+                <v-calendar></v-calendar>
+              </strong>
+            </div>   
+            <!-- <div class="col-md-1">  
+              <button type="button" class="btn btn-warning btn-flat">Search</button>      
+            </div>                   -->
           </div>
          <div class="box-body">
             <div class="table-responsive">
@@ -98,6 +85,17 @@
         </div>  
       </div>
       
+      <div class="col-md-5">
+        <div class="box box-danger">
+          <div class="box-header with-border">
+            <h3 class="box-title"><strong>미리보기</strong></h3>
+          </div>
+         <div class="box-body">
+          <img src="../static/img/photo1.png" class="img-responsive pad">
+         </div>
+        </div>  
+      </div>
+
     </row>
     <row>
        <div class="col-md-4">
@@ -151,6 +149,7 @@ import VAChart from 'components/VAChart'
 
 // import FunctionalCalendar from 'vue-functional-calendar'
 import FunctionalCalendar from 'components/FNCalendar.vue'
+import VCalendar from 'components/VCalendar.vue'
 
 export default {
   name: 'hello',
@@ -239,7 +238,8 @@ export default {
   },
   components: {
     'va-calendar': FunctionalCalendar,
-    'va-chart': VAChart
+    'va-chart': VAChart,
+    'v-calendar': VCalendar
   }
 }
 </script>

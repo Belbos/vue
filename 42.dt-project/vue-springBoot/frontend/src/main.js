@@ -19,6 +19,13 @@ import 'vue-awesome/icons/spinner'
 import 'vue-awesome/icons/check-circle-o'
 import 'vue-awesome/icons/book'
 import Icon from 'vue-awesome/components/Icon'
+import VCalendar from 'v-calendar'
+import 'v-calendar/lib/v-calendar.min.css'
+import Buefy from 'buefy'
+import 'buefy/dist/buefy.css'
+
+Vue.use(Buefy)
+Vue.use(VCalendar)
 
 Vue.prototype.$bus = EventBus
 Vue.prototype.$http = axios
