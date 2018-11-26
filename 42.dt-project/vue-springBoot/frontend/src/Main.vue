@@ -26,56 +26,30 @@
                   <th>사업장</th>
                   <th>검출항목</th>
                   <th>항목수</th>
-                  <th>경로</th>
+                  <th>파일명</th>
                   <th>적중여부</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
+
+                <!-- <tr>
                   <td>2018/10/18 13:00:32</td>
                   <td>판교</td>
                   <td>노트북 가방</td>
                   <td> 1 </td>
                   <td> /image/20181018/pan/<br/>laptop/laptop.jpg </td>
+                  <td> Y/N </td>
+                </tr> -->
+
+                <tr v-for="(user,index) in users" :key="user.id">
+                  <td>{{user.datetime,index}}</td>
+                  <td>{{판교}}</td>
+                  <td>{{user.methodname}}</td>
+                  <td> 1 </td>
+                  <td>{{user.filename}} </td>
                   <td> Y/N </td>
                 </tr>
                 
-                 <tr>
-                  <td>2018/10/18 13:00:32</td>
-                  <td>판교</td>
-                  <td>노트북 가방</td>
-                  <td> 1 </td>
-                  <td> /image/20181018/pan/<br/>laptop/laptop.jpg </td>
-                  <td> Y/N </td>
-                </tr>
-
-                 <tr>
-                  <td>2018/10/18 13:00:32</td>
-                  <td>판교</td>
-                  <td>노트북 가방</td>
-                  <td> 1 </td>
-                  <td> /image/20181018/pan/<br/>laptop/laptop.jpg </td>
-                  <td> Y/N </td>
-                </tr>
-              
-                 <tr>
-                  <td>2018/10/18 13:00:32</td>
-                  <td>판교</td>
-                  <td>노트북 가방</td>
-                  <td> 1 </td>
-                  <td> /image/20181018/pan/<br/>laptop/laptop.jpg </td>
-                  <td> Y/N </td>
-                </tr>
-
-                   <tr>
-                  <td>2018/10/18 13:00:32</td>
-                  <td>판교</td>
-                  <td>노트북 가방</td>
-                  <td> 1 </td>
-                  <td> /image/20181018/pan/<br/>laptop/laptop.jpg </td>
-                  <td> Y/N </td>
-                </tr>
-
                 </tbody>
               </table>
             </div>
@@ -155,6 +129,7 @@ export default {
   name: 'hello',
   data () {
     return {
+      users: [],
       msgHello: 'Hello',
       msgBye: 'Bye',
       loading: false,
@@ -240,6 +215,11 @@ export default {
     'va-calendar': FunctionalCalendar,
     'va-chart': VAChart,
     'v-calendar': VCalendar
+  },
+  created () {
+    this.$http.get('/api/users').then(resp => {
+      this.users = resp.data.response
+    })
   }
 }
 </script>

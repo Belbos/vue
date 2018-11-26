@@ -11,7 +11,7 @@
     margin-left: -15vw;
     margin-top: -15vh;
    animation: image 2s ease-in-out 6s 1 normal forwards;
-    background: url('../assets/logo.svg');
+    background: url('../assets/logo.png');
     background-repeat: no-repeat;
     box-sizing: border-box;
     background-size: 100% 100%; 
@@ -43,11 +43,11 @@
     }
       @-webkit-keyframes fromBlackToGreen {
         0%   {
-          color: #00b894;
+          color: #cc4101;
         }
         100% {
          // opacity: 0;
-          color: #00b894;
+          color: #cc4101;
         }
     }
       @keyframes fromBlackToGreen {
@@ -55,7 +55,7 @@
           color: #333;
         }
         100% {
-          color: #00b894;
+          color: #cc4101;
         }
       }
 

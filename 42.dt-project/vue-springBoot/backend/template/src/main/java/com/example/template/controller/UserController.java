@@ -27,10 +27,10 @@ public class UserController {
     public ResponseVO<?> getUsers() {
         ResponseVO<List<UserVO>> resp = new ResponseVO<>();
 
-        // List<UserVO> home = testMapper.readHome();
+        List<UserVO> home = testMapper.readHome();
 
-        List<UserVO> home = new ArrayList<>();
-        home.add(new UserVO("SSD","model181111225939","181121151828","laptop.jpg","backpack","1","0","0.03","1","1","c:/sss/sss/laptop.jpg","Y","127.0.0.1","","","2018-11-21 15:27:08","2018-11-21 15:27:08"));
+        // List<UserVO> home = new ArrayList<>();
+        // home.add(new UserVO("SSD","model181111225939","181121151828","laptop.jpg","backpack","1","0","0.03","1","1","c:/sss/sss/laptop.jpg","Y","127.0.0.1","","","2018-11-21 15:27:08","2018-11-21 15:27:08"));
 
         System.out.println("print::"+home.toString());
 

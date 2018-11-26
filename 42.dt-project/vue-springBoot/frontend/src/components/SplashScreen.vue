@@ -6,7 +6,7 @@
      </transition>
     <div class="logo-letters-group">
       <span class="logo-letter" v-for="(item, index) in logoName" :key="index" v-if="item !== 'img'">{{item}}</span>
-      <span class="logo-letter" v-else > <img src="https://geekyants.com/images/logo-icon-lg.png" /> </span>
+      <span class="logo-letter" v-else > <img src='../assets/logo.png' /> </span>
     </div>
   </div>
 </template>
@@ -16,7 +16,7 @@ export default {
   data () {
     return {
       show: true,
-      logoName: ['B', 'U', 'I', 'L', 'T', '  ', 'W', 'I', 'T', 'H', '  ', '<3', '  ', 'A', 'T', '  ', 'img', '  ', 'G', 'E', 'E', 'K', 'Y', 'A', 'N', 'T', 'S']
+      logoName: ['H', 'A', 'N', 'W', 'H', 'A', 'img', 'A', 'C', 'C', 'E', 'S', 'S', ' ', 'C', 'O', 'N', 'T', 'R', 'O', 'L']
     }
   },
   methods: {

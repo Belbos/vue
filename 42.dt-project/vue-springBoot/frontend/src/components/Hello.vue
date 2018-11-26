@@ -40,9 +40,9 @@
       <ul>
         <li>General Elements</li>
       </ul>
-      <!-- <li v-for="(user,index) in users" :key="user.id"> -->
-         {{users}}
-      <!-- </li> -->
+      <li v-for="(user,index) in users" :key="user.id">
+         {{user.methodname}} <br/> {{index}}
+      </li>
     </div>
   </div>
 </template>
