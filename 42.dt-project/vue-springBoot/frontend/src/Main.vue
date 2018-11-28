@@ -12,6 +12,7 @@
               <strong>
                 <v-calendar></v-calendar>
               </strong>
+              {{selectedDate.start}}{{selectedDate.end}}
             </div>   
             <!-- <div class="col-md-1">  
               <button type="button" class="btn btn-warning btn-flat">Search</button>      
@@ -65,7 +66,7 @@
             <h3 class="box-title"><strong>미리보기</strong></h3>
           </div>
          <div class="box-body">
-          <img src="../static/img/photo1.png" class="img-responsive pad">
+          <img src="./assets/img/1.png" class="img-responsive pad">
          </div>
         </div>  
       </div>
@@ -133,6 +134,10 @@ export default {
       msgHello: 'Hello',
       msgBye: 'Bye',
       loading: false,
+      selectedDate: {
+        start: '',
+        end: ''
+      },
       barChartConfig: {
         type: 'bar',
         data: {
@@ -219,6 +224,9 @@ export default {
   created () {
     this.$http.get('/api/users').then(resp => {
       this.users = resp.data.response
+    })
+    this.$bus.$on('calendar-eventbus', dateInfo => {
+      this.selectedDate = dateInfo
     })
   }
 }

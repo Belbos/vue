@@ -21,7 +21,7 @@
                     </span>
               </div>
               <div class="textbox-wrapper">
-                <input class="text-box" type="password" />
+                <input  v-model="password" class="text-box" type="password" />
                     <span class="lock-icon">
                         <icon name="lock"></icon>
                     </span>
@@ -29,6 +29,7 @@
               <button type="submit"  v-on:click.prevent="onSubmit" class="btn submit-btn" >
                   <span class="login-text">LOGIN</span>
               </button>
+              <div class="alert-danger" v-if="{errorMessage} === ''">{errorMessage}</div>
                   <p class="text">Forgot your password?</p>
                   <p class="text footer-text">Have already account? Sign In</p>
           </form>
@@ -45,16 +46,30 @@ export default {
     return {
       show: false,
       name: '',
+      password: '',
+      idok: 'crachi',
+      pwok: 'test',
+      errorMessage: '',
       imgSrc: require('../assets/userTwo.jpg')
     }
   },
   methods: {
     onSubmit: function () {
-      console.log('??')
-      this.show = true
-      setTimeout(() => {
-        this.$router.push('/main')
-      }, 2000)
+      console.log(this.name)
+      console.log(this.password)
+      if (this.name === this.idok) {
+        if (this.password === this.pwok) {
+          this.show = true
+          setTimeout(() => {
+            this.$router.push('/main')
+          }, 2000)
+        } else {
+          errorMessage = '비밀번호가 틀립니다'
+          this.password = ''
+        }
+      } else {
+        errorMessage = '등록되지 않은 아이디입니다'
+      }
     },
     customHook: function (el) {
       console.log('on render')

@@ -4,7 +4,7 @@
             <!-- <input type="text" name="message" placeholder="Type Message ..." class="form-control"> -->
         </v-date-picker>
         <span class="input-group-btn">
-            <button type="button" class="btn btn-warning btn-flat">Search</button>
+            <button type="button" @click="calendarClick" class="btn btn-warning btn-flat">Search</button>
         </span>
     </div>
 </template>
@@ -16,7 +16,23 @@ export default {
       selectedDate: {
         start: new Date(2018, 10, 1),
         end: new Date(2018, 10, 1)
+      },
+      sendDate: {
+        start: '',
+        end: ''
       }
+    }
+  },
+  methods: {
+    calendarClick () {
+      this.sendDate.start = this.selectedDate.start.substr(0, 5)
+      this.sendDate.end = this.selectedDate.end
+      this.$bus.$emit('calendar-eventbus', this.sendDate)
+    }
+  },
+  fliters: {
+    calSubstr: function (string) {
+      return string.substring(0, 5)
     }
   }
 }
