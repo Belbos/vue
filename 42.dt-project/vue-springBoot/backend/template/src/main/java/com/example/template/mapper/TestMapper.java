@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Select;
 @Mapper 
 public interface TestMapper { 
 	// @Select("SELECT DOC_NUM,TEXT FROM INSTA")
-	@Select("SELECT * FROM MAIN_RESULTMODEL")  
+	@Select("SELECT  TO_DATE(DATETIME,'YYMMDDHH24MISS') PRINTDATE, substr(DATETIME,0,6) SEARCHDATE, A.* FROM MAIN_RESULTMODEL A")  
 	public List<UserVO> readHome(); 
 }
 

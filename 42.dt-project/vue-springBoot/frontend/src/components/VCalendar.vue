@@ -25,16 +25,26 @@ export default {
   },
   methods: {
     calendarClick () {
-      this.sendDate.start = this.selectedDate.start.substr(0, 5)
-      this.sendDate.end = this.selectedDate.end
+      this.sendDate.start = toDate(this.selectedDate.start)
+      this.sendDate.end = toDate(this.selectedDate.end)
       this.$bus.$emit('calendar-eventbus', this.sendDate)
     }
-  },
-  fliters: {
-    calSubstr: function (string) {
-      return string.substring(0, 5)
-    }
   }
+}
+
+function toDate (sDate) {
+  var dateString = ''
+  dateString += sDate.getFullYear()
+  dateString += pad(sDate.getMonth() + 1, 2)
+  dateString += pad(sDate.getDate(), 2)
+
+  console.log(sDate.getMonth())
+  return dateString
+}
+
+function pad (n, width) {
+  n = n + ''
+  return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n
 }
 </script>
 <style>

@@ -19,8 +19,8 @@ public class UserVO {
     // }
 
 
-
-
+    private String printdate;
+    private String searchdate;
     private String methodname;
     private String modelname;
     private String datetime;
@@ -40,8 +40,10 @@ public class UserVO {
     private String update_dt;
 
     public UserVO(){}
-    public UserVO(String methodname, String modelname, String datetime, String filename, String label, String score, String px, String py, String width, String height,String image_path,String hit_yn, String ip, String managername,String emp_no, String insert_dt, String update_dt) {
+    public UserVO(String printdate,String searchdate,String methodname, String modelname, String datetime, String filename, String label, String score, String px, String py, String width, String height,String image_path,String hit_yn, String ip, String managername,String emp_no, String insert_dt, String update_dt) {
         super();
+        this.printdate = printdate; 
+        this.searchdate = searchdate; 
         this.methodname = methodname; 
         this.modelname = modelname; 
         this.datetime = datetime;

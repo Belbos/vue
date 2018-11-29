@@ -1,83 +1,12 @@
 <template>
   <section class="content">
-    <row>
-      <div class="col-md-7">
-        <div class="box direct-chat box-primary direct-chat-primary">
-          <div class="box-header with-border">
-            <div class="col-md-4">
-              <h3 class="box-title"><strong>일자별리스트</strong>
-              </h3> 
-            </div>
-            <div class="col-md-7">
-              <strong>
-                <v-calendar></v-calendar>
-              </strong>
-              {{selectedDate.start}}{{selectedDate.end}}
-            </div>   
-            <!-- <div class="col-md-1">  
-              <button type="button" class="btn btn-warning btn-flat">Search</button>      
-            </div>                   -->
-          </div>
-         <div class="box-body">
-            <div class="table-responsive">
-              <table class="table no-margin">
-                <thead>
-                <tr>
-                  <th>일시</th>
-                  <th>사업장</th>
-                  <th>검출항목</th>
-                  <th>항목수</th>
-                  <th>파일명</th>
-                  <th>적중여부</th>
-                </tr>
-                </thead>
-                <tbody>
-
-                <!-- <tr>
-                  <td>2018/10/18 13:00:32</td>
-                  <td>판교</td>
-                  <td>노트북 가방</td>
-                  <td> 1 </td>
-                  <td> /image/20181018/pan/<br/>laptop/laptop.jpg </td>
-                  <td> Y/N </td>
-                </tr> -->
-
-                <tr v-for="(user,index) in users" :key="user.id">
-                  <td>{{user.datetime,index}}</td>
-                  <td>{{판교}}</td>
-                  <td>{{user.methodname}}</td>
-                  <td> 1 </td>
-                  <td>{{user.filename}} </td>
-                  <td> Y/N </td>
-                </tr>
-                
-                </tbody>
-              </table>
-            </div>
-            <!-- /.table-responsive -->
-          </div>
-          <!-- /.box-body -->
-        </div>  
-      </div>
-      
-      <div class="col-md-5">
-        <div class="box box-danger">
-          <div class="box-header with-border">
-            <h3 class="box-title"><strong>미리보기</strong></h3>
-          </div>
-         <div class="box-body">
-          <img src="./assets/img/1.png" class="img-responsive pad">
-         </div>
-        </div>  
-      </div>
-
-    </row>
+    
     <row>
        <div class="col-md-4">
         <div class="box">
           <div class="box-body">  
             <p class='text-center'>
-              <strong>월별 반출입 현황</strong>
+              <strong>월별 반출 현황</strong>
             </p>
             <va-chart
               :chart-config='barChartConfig'
@@ -114,6 +43,79 @@
           </div>              
         </div>
       </div>
+    </row>
+
+    <row>
+      <div class="col-md-7">
+        <div class="box direct-chat box-primary direct-chat-primary">
+          <div class="box-header with-border">
+            <div class="col-md-4">
+              <h3 class="box-title"><strong>일자별리스트</strong>
+              </h3> 
+            </div>
+            <div class="col-md-7">
+              <strong>
+                <v-calendar></v-calendar>
+              </strong>
+              {{selectedDate.start}}<br/>{{selectedDate.end}}
+            </div>   
+            <!-- <div class="col-md-1">  
+              <button type="button" class="btn btn-warning btn-flat">Search</button>      
+            </div>                   -->
+          </div>
+         <div class="box-body">
+            <div class="table-responsive">
+              <table class="table no-margin">
+                <thead>
+                <tr>
+                  <th>일시</th>
+                  <!-- <th>사업장</th> -->
+                  <th>검출항목</th>
+                  <th>항목수</th>
+                  <th>파일명</th>
+                  <th>적중여부</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <!-- <tr>
+                  <td>2018/10/18 13:00:32</td>
+                  <td>판교</td>
+                  <td>노트북 가방</td>
+                  <td> 1 </td>
+                  <td> /image/20181018/pan/<br/>laptop/laptop.jpg </td>
+                  <td> Y/N </td>
+                </tr> -->
+
+                <tr v-for="(user,index) in users" :key="user.id">
+                  <td>{{user.printdate,index}}</td>
+                  <!-- <td>{{판교}}</td> -->
+                  <td>{{user.label}}</td>
+                  <td> 1 </td>
+                  <td>{{user.filename}} </td>
+                  <td>{{user.hit_yn}}</td>
+                </tr>
+                
+                </tbody>
+              </table>
+            </div>
+            <!-- /.table-responsive -->
+          </div>
+          <!-- /.box-body -->
+        </div>  
+      </div>
+      
+      <div class="col-md-5">
+        <div class="box box-danger">
+          <div class="box-header with-border">
+            <h3 class="box-title"><strong>미리보기</strong></h3>
+          </div>
+         <div class="box-body">
+          <img src="./assets/img/1.png" class="img-responsive pad">
+         </div>
+        </div>  
+      </div>
+
     </row>
   </section>
 </template>

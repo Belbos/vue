@@ -29,7 +29,7 @@
               <button type="submit"  v-on:click.prevent="onSubmit" class="btn submit-btn" >
                   <span class="login-text">LOGIN</span>
               </button>
-              <div class="alert-danger" v-if="{errorMessage} === ''">{errorMessage}</div>
+              <!-- <div class="alert-danger" v-if="{errorMessage} === ''">{errorMessage}</div> -->
                   <p class="text">Forgot your password?</p>
                   <p class="text footer-text">Have already account? Sign In</p>
           </form>
@@ -49,7 +49,6 @@ export default {
       password: '',
       idok: 'crachi',
       pwok: 'test',
-      errorMessage: '',
       imgSrc: require('../assets/userTwo.jpg')
     }
   },
@@ -64,11 +63,10 @@ export default {
             this.$router.push('/main')
           }, 2000)
         } else {
-          errorMessage = '비밀번호가 틀립니다'
-          this.password = ''
+          alert('비밀번호가 틀립니다')
         }
       } else {
-        errorMessage = '등록되지 않은 아이디입니다'
+        alert('등록되지 않은 아이디입니다')
       }
     },
     customHook: function (el) {
