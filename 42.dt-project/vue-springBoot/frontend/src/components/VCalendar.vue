@@ -14,8 +14,8 @@ export default {
   data () {
     return {
       selectedDate: {
-        start: new Date(2018, 10, 1),
-        end: new Date(2018, 10, 1)
+        start: new Date(),
+        end: new Date()
       },
       sendDate: {
         start: '',
@@ -34,11 +34,10 @@ export default {
 
 function toDate (sDate) {
   var dateString = ''
-  dateString += sDate.getFullYear()
+  dateString += (sDate.getYear() - 100)
   dateString += pad(sDate.getMonth() + 1, 2)
   dateString += pad(sDate.getDate(), 2)
 
-  console.log(sDate.getMonth())
   return dateString
 }
 

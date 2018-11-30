@@ -3,7 +3,7 @@ package com.example.template.vo;
 import lombok.Data;
 
 @Data
-public class UserVO {
+public class ListVO {
 
     // private String doc_num;
     // private String text;
@@ -39,8 +39,8 @@ public class UserVO {
     private String insert_dt;
     private String update_dt;
 
-    public UserVO(){}
-    public UserVO(String printdate,String searchdate,String methodname, String modelname, String datetime, String filename, String label, String score, String px, String py, String width, String height,String image_path,String hit_yn, String ip, String managername,String emp_no, String insert_dt, String update_dt) {
+    public ListVO(){}
+    public ListVO(String printdate,String searchdate,String methodname, String modelname, String datetime, String filename, String label, String score, String px, String py, String width, String height,String image_path,String hit_yn, String ip, String managername,String emp_no, String insert_dt, String update_dt) {
         super();
         this.printdate = printdate; 
         this.searchdate = searchdate; 

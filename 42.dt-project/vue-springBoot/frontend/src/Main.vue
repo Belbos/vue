@@ -1,12 +1,14 @@
 <template>
-  <section class="content">
-    
+  <section class="content"> 
+    <!-- first row -->
     <row>
        <div class="col-md-4">
         <div class="box">
           <div class="box-body">  
             <p class='text-center'>
               <strong>월별 반출 현황</strong>
+              {{this.barChartConfig.data.labels}}
+              {{this.barChartConfig.data.datasets.data}} <br/>
             </p>
             <va-chart
               :chart-config='barChartConfig'
@@ -14,8 +16,7 @@
             </va-chart>
           </div> 
         </div>   
-      </div>
-      
+      </div>     
       <div class="col-md-4">
         <div class="box">
           <div class="box-body">  
@@ -29,7 +30,6 @@
           </div>  
         </div>               
       </div>
-
       <div class="col-md-4">  
         <div class="box">
           <div class="box-body">  
@@ -44,32 +44,30 @@
         </div>
       </div>
     </row>
-
+    <!-- second row  -->
     <row>
       <div class="col-md-7">
         <div class="box direct-chat box-primary direct-chat-primary">
           <div class="box-header with-border">
             <div class="col-md-4">
               <h3 class="box-title"><strong>일자별리스트</strong>
+                    <!-- <br/> {{hits}}
+                    <br/> {{labs}}
+                    <br/> {{mons}} -->
               </h3> 
             </div>
             <div class="col-md-7">
               <strong>
                 <v-calendar></v-calendar>
               </strong>
-              {{selectedDate.start}}<br/>{{selectedDate.end}}
             </div>   
-            <!-- <div class="col-md-1">  
-              <button type="button" class="btn btn-warning btn-flat">Search</button>      
-            </div>                   -->
           </div>
-         <div class="box-body">
+         <div class="box-body chat id-chat-box">
             <div class="table-responsive">
               <table class="table no-margin">
                 <thead>
                 <tr>
                   <th>일시</th>
-                  <!-- <th>사업장</th> -->
                   <th>검출항목</th>
                   <th>항목수</th>
                   <th>파일명</th>
@@ -77,25 +75,16 @@
                 </tr>
                 </thead>
                 <tbody>
-
-                <!-- <tr>
-                  <td>2018/10/18 13:00:32</td>
-                  <td>판교</td>
-                  <td>노트북 가방</td>
-                  <td> 1 </td>
-                  <td> /image/20181018/pan/<br/>laptop/laptop.jpg </td>
-                  <td> Y/N </td>
-                </tr> -->
-
-                <tr v-for="(user,index) in users" :key="user.id">
+                <tr v-for="(user,index) in users" :key="user.id" v-if="user.searchdate >= selectedDate.start && user.searchdate <= selectedDate.end">
                   <td>{{user.printdate,index}}</td>
-                  <!-- <td>{{판교}}</td> -->
                   <td>{{user.label}}</td>
                   <td> 1 </td>
                   <td>{{user.filename}} </td>
-                  <td>{{user.hit_yn}}</td>
-                </tr>
-                
+                  <td>
+                      <input type="radio" v-model="user.hit_yn" value="Y">Y
+                      <input type="radio" v-model="user.hit_yn" value="N">N 
+                  </td>
+                </tr>            
                 </tbody>
               </table>
             </div>
@@ -133,12 +122,15 @@ export default {
   data () {
     return {
       users: [],
+      hits: [],
+      labs: [],
+      mons: [],
       msgHello: 'Hello',
       msgBye: 'Bye',
       loading: false,
       selectedDate: {
-        start: '',
-        end: ''
+        start: toDate(new Date()),
+        end: toDate(new Date())
       },
       barChartConfig: {
         type: 'bar',
@@ -224,14 +216,44 @@ export default {
     'v-calendar': VCalendar
   },
   created () {
-    this.$http.get('/api/users').then(resp => {
-      this.users = resp.data.response
+    this.$http.get('/api/users').then(respList => {
+      this.users = respList.data.response
+    })
+    this.$http.get('/api/users/hits').then(respHits => {
+      this.hits = respHits.data.response
+    })
+    this.$http.get('/api/users/labs').then(respLabs => {
+      this.labs = respLabs.data.response
+    })
+    this.$http.get('/api/users/mons').then(respMons => {
+      this.mons = respMons.data.response
     })
     this.$bus.$on('calendar-eventbus', dateInfo => {
       this.selectedDate = dateInfo
     })
+  },
+  mounted () {
+    var chatBoxElement = this.$el.querySelector('.id-chat-box')
+    $(chatBoxElement).slimScroll({
+      height: '306px'
+    })
   }
 }
+
+function toDate (sDate) {
+  var dateString = ''
+  dateString += (sDate.getYear() - 100)
+  dateString += pad(sDate.getMonth() + 1, 2)
+  dateString += pad(sDate.getDate(), 2)
+
+  return dateString
+}
+
+function pad (n, width) {
+  n = n + ''
+  return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n
+}
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -252,6 +274,10 @@ li {
 
 a {
   color: #42b983;
+}
+
+.box.box-danger{
+  height: 400px;
 }
 
 /* img{

@@ -1,11 +1,5 @@
 <template>
   <div id="app">
-    <!-- <div class="wrapper">
-      <va-navibar></va-navibar>
-      <va-slider :slideMenuItems="slideMenuItems"></va-slider>
-      <va-content-wrap></va-content-wrap>
-      <Modal></Modal>
-    </div> -->
     <router-view></router-view>
   </div>
 </template>

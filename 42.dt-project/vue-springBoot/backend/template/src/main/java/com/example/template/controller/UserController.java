@@ -3,9 +3,15 @@ package com.example.template.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.template.mapper.TestMapper;
+import com.example.template.mapper.HitMapper;
+import com.example.template.mapper.LabelMapper;
+import com.example.template.mapper.ListMapper;
+import com.example.template.mapper.MonthMapper;
 import com.example.template.vo.ResponseVO;
-import com.example.template.vo.UserVO;
+import com.example.template.vo.HitVO;
+import com.example.template.vo.LabVO;
+import com.example.template.vo.ListVO;
+import com.example.template.vo.MonVO;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,57 +27,60 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     @Autowired
-	TestMapper testMapper;     
+    ListMapper listMapper;     
+    
+    @Autowired
+    HitMapper hitMapper;
+    
+    @Autowired
+    LabelMapper labelMapper;
+
+    @Autowired
+    MonthMapper monthMapper;
 
     @GetMapping
-    public ResponseVO<?> getUsers() {
-        ResponseVO<List<UserVO>> resp = new ResponseVO<>();
+    public ResponseVO<?> getLists() {
+        ResponseVO<List<ListVO>> respList = new ResponseVO<>();
 
-        List<UserVO> home = testMapper.readHome();
+        List<ListVO> rList = listMapper.selectList();
 
-        // List<UserVO> home = new ArrayList<>();
-        // home.add(new UserVO("SSD","model181111225939","181121151828","laptop.jpg","backpack","1","0","0.03","1","1","c:/sss/sss/laptop.jpg","Y","127.0.0.1","","","2018-11-21 15:27:08","2018-11-21 15:27:08"));
+        System.out.println("printList::"+rList.toString());
 
-        System.out.println("print::"+home.toString());
-
-        resp.setResponse(home);
-        return resp;
+        respList.setResponse(rList);
+        return respList;
     }
-    
 
-    // @GetMapping("/{id}")
-    // public ResponseVO<?> getUsers(@PathVariable int id) {
-    //     ResponseVO<UserVO> resp = new ResponseVO<>();
+    @GetMapping("/hits")
+    public ResponseVO<?> gethits() {
+        ResponseVO<List<HitVO>> respHits = new ResponseVO<>();
 
-    //     List<UserVO> home = testMapper.readHome();
+        List<HitVO> rHits = hitMapper.selectHit();
+        System.out.println("printHits::"+rHits.toString());
 
-    //     resp.setResponse(home.get(id));
-    //     return resp;
-    // }
+        respHits.setResponse(rHits);
+        return respHits;
+    }
 
-    // @GetMapping
-    // public ResponseVO<?> getUsers() {
-    //     ResponseVO<List<UserVO>> resp = new ResponseVO<>();
+    @GetMapping("/labs")
+    public ResponseVO<?> getlabs() {
+        ResponseVO<List<LabVO>> respLabs = new ResponseVO<>();
 
-    //     List<UserVO> list = new ArrayList<>();
-    //     list.add(new UserVO("테스트", "010-1111-2222"));
-    //     list.add(new UserVO("테스터", "010-4444-2222"));
-    //     list.add(new UserVO("LSH", "010-9999-1111"));
+        List<LabVO> rLabs = labelMapper.selectLabel();
+        System.out.println("printLabs::"+rLabs.toString());
 
-    //     resp.setResponse(list);
-    //     return resp;
-    // }
+        respLabs.setResponse(rLabs);
+        return respLabs;
+    }
 
-    // @GetMapping("/{id}")
-    // public ResponseVO<?> getUser(@PathVariable int id) {
-    //     ResponseVO<UserVO> resp = new ResponseVO<>();
+    @GetMapping("/mons")
+    public ResponseVO<?> getmons() {
+        ResponseVO<List<MonVO>> respMons = new ResponseVO<>();
 
-    //     List<UserVO> list = new ArrayList<>();
-    //     list.add(new UserVO("테스트", "010-1111-2222"));
-    //     list.add(new UserVO("테스터", "010-4444-2222"));
-    //     list.add(new UserVO("LSH", "010-9999-1111"));
+        List<MonVO> rMons = monthMapper.selectMonth();
+        System.out.println("printMonth::"+rMons.toString());
 
-    //     resp.setResponse(list.get(id));
-    //     return resp;
-    // }
+        respMons.setResponse(rMons);
+        return respMons;
+    }   
+
 }
