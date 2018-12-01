@@ -3,6 +3,7 @@ package com.example.template.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.template.mapper.HItUpdateMapper;
 import com.example.template.mapper.HitMapper;
 import com.example.template.mapper.LabelMapper;
 import com.example.template.mapper.ListMapper;
@@ -37,6 +38,9 @@ public class UserController {
 
     @Autowired
     MonthMapper monthMapper;
+
+    @Autowired
+    HItUpdateMapper hitUpdateMapper;
 
     @GetMapping
     public ResponseVO<?> getLists() {
@@ -83,4 +87,17 @@ public class UserController {
         return respMons;
     }   
 
+    @GetMapping("/{yn}/{hitImg}")
+    public String save(@PathVariable String yn, @PathVariable String hitImg){
+        String succ = "succ";
+        System.out.println("chicheck::" + hitImg + yn);
+
+        if(yn.equals("Y")){
+            hitUpdateMapper.UpdateHitY(hitImg);
+        }else{
+            hitUpdateMapper.UpdateHitN(hitImg);
+        }
+        
+        return succ;
+    }
 }

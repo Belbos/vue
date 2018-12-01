@@ -7,11 +7,11 @@
           <div class="box-body">  
             <p class='text-center'>
               <strong>월별 반출 현황</strong>
-              {{this.barChartConfig.data.labels}}
-              {{this.barChartConfig.data.datasets.data}} <br/>
+              <!-- {{this.barChartConfig.data.labels}}
+              {{this.barChartConfig.data.datasets[0].data}} <br/> -->
             </p>
             <va-chart
-              :chart-config='barChartConfig'
+              :chart-config='monsChartConfig'
             >
             </va-chart>
           </div> 
@@ -24,7 +24,7 @@
               <strong>종류별 비율</strong>
             </p>
             <va-chart
-              :chart-config='doughnutChartConfig'
+              :chart-config='labsChartConfig'
             >
             </va-chart>
           </div>  
@@ -37,7 +37,7 @@
               <strong>오탐률</strong>
             </p>
             <va-chart
-              :chart-config='doughnutChartConfig'
+              :chart-config='hitsChartConfig'
             >
             </va-chart>
           </div>              
@@ -46,7 +46,7 @@
     </row>
     <!-- second row  -->
     <row>
-      <div class="col-md-7">
+      <div class="col-md-8">
         <div class="box direct-chat box-primary direct-chat-primary">
           <div class="box-header with-border">
             <div class="col-md-4">
@@ -79,10 +79,10 @@
                   <td>{{user.printdate,index}}</td>
                   <td>{{user.label}}</td>
                   <td> 1 </td>
-                  <td>{{user.filename}} </td>
-                  <td>
-                      <input type="radio" v-model="user.hit_yn" value="Y">Y
-                      <input type="radio" v-model="user.hit_yn" value="N">N 
+                  <td @click="clickImg(user.filename)">{{user.filename}} </td>
+                  <td >
+                      <input type="radio" @click="clickHitY(user.hit_yn, user.filename)" v-model="user.hit_yn" value="Y">Y
+                      <input type="radio" @click="clickHitN(user.hit_yn, user.filename)" v-model="user.hit_yn" value="N">N 
                   </td>
                 </tr>            
                 </tbody>
@@ -94,13 +94,13 @@
         </div>  
       </div>
       
-      <div class="col-md-5">
+      <div class="col-md-4">
         <div class="box box-danger">
           <div class="box-header with-border">
             <h3 class="box-title"><strong>미리보기</strong></h3>
           </div>
          <div class="box-body">
-          <img src="./assets/img/1.png" class="img-responsive pad">
+          <img :src=img_path+clickedImg class="img-responsive pad">
          </div>
         </div>  
       </div>
@@ -125,6 +125,8 @@ export default {
       hits: [],
       labs: [],
       mons: [],
+      img_path: '../static/img/r_img/',
+      clickedImg: 'default.png',
       msgHello: 'Hello',
       msgBye: 'Bye',
       loading: false,
@@ -132,10 +134,10 @@ export default {
         start: toDate(new Date()),
         end: toDate(new Date())
       },
-      barChartConfig: {
+      monsChartConfig: {
         type: 'bar',
         data: {
-          labels: ['January', 'February', 'March', 'April'],
+          labels: [],
           datasets: [
             {
               label: 'My First dataset',
@@ -156,7 +158,7 @@ export default {
                 'rgba(255, 159, 64, 1)'
               ],
               borderWidth: 1,
-              data: [65, 59, 80, 81]
+              data: []
             }
           ]
         },
@@ -171,17 +173,38 @@ export default {
           }
         }
       },
-      doughnutChartConfig: {
+      labsChartConfig: {
         type: 'doughnut',
         data: {
-          labels: [
-            'Red',
-            'Blue',
-            'Yellow'
-          ],
+          labels: [],
           datasets: [
             {
-              data: [300, 50, 100],
+              data: [],
+              backgroundColor: [
+                '#FF6384',
+                '#36A2EB',
+                '#FFCE56'
+              ],
+              hoverBackgroundColor: [
+                '#FF6384',
+                '#36A2EB',
+                '#FFCE56'
+              ]
+            }]
+        },
+        options: {
+          animation: {
+            animateScale: true
+          }
+        }
+      },
+      hitsChartConfig: {
+        type: 'doughnut',
+        data: {
+          labels: [],
+          datasets: [
+            {
+              data: [],
               backgroundColor: [
                 '#FF6384',
                 '#36A2EB',
@@ -208,6 +231,19 @@ export default {
       setTimeout(() => {
         this.loading = !this.loading
       }, 1000)
+    },
+    clickImg (filename) {
+      this.clickedImg = filename
+    },
+    clickHitN (hityn, filename) {
+      console.log('nhit' + hityn)
+      var hitImg = filename
+      this.$http.get(`/api/users/N/${hitImg}`)
+    },
+    clickHitY (hityn, filename) {
+      console.log('yhit' + hityn)
+      var hitImg = filename
+      this.$http.get(`/api/users/Y/${hitImg}`)
     }
   },
   components: {
@@ -221,12 +257,15 @@ export default {
     })
     this.$http.get('/api/users/hits').then(respHits => {
       this.hits = respHits.data.response
+      addHits(this.hitsChartConfig.data, this.hits)
     })
     this.$http.get('/api/users/labs').then(respLabs => {
       this.labs = respLabs.data.response
+      addLabs(this.labsChartConfig.data, this.labs)
     })
     this.$http.get('/api/users/mons').then(respMons => {
       this.mons = respMons.data.response
+      addMons(this.monsChartConfig.data, this.mons)
     })
     this.$bus.$on('calendar-eventbus', dateInfo => {
       this.selectedDate = dateInfo
@@ -254,6 +293,27 @@ function pad (n, width) {
   return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n
 }
 
+function addMons (barChartData, monsData) {
+  for (var i = 0; i < monsData.length; i++) {
+    barChartData.labels.push(monsData[i].v_month)
+    barChartData.datasets[0].data.push(monsData[i].mon_cnt)
+  }
+}
+
+function addLabs (labChartData, labsData) {
+  for (var i = 0; i < labsData.length; i++) {
+    labChartData.labels.push(labsData[i].label)
+    labChartData.datasets[0].data.push(labsData[i].lab_cnt)
+  }
+}
+
+function addHits (hitChartData, hitsData) {
+  for (var i = 0; i < hitsData.length; i++) {
+    hitChartData.labels.push(hitsData[i].hit_yn)
+    hitChartData.datasets[0].data.push(hitsData[i].hit_cnt)
+  }
+}
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -276,9 +336,9 @@ a {
   color: #42b983;
 }
 
-.box.box-danger{
+/* .box.box-danger{
   height: 400px;
-}
+} */
 
 /* img{
   height: 25%;
