@@ -5,24 +5,24 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 import VueI18n from 'vue-i18n'
+import MainHeader from './components/frame/MainHeader.vue'
+import MainFooter from './components/frame/MainFooter.vue'
+import MainNavi from './components/frame/MainNavi.vue'
+import MainBody from './components/frame/MainBody.vue'
+import './css/common.css'
 
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
-const pageLang = require('./lang/page.json');
+const pageLang = require('./lang/page.json')
 
-import MainHeader from './components/frame/MainHeader.vue';
-import MainFooter from './components/frame/MainFooter.vue';
-import MainNavi from './components/frame/MainNavi.vue';
-import MainBody from './components/frame/MainBody.vue';
 
-import './css/common.css';
 // import './css/iframe.css';
 
 
-Vue.component('main-header', MainHeader);
-Vue.component('main-footer', MainFooter);
-Vue.component('main-body', MainBody);
-Vue.component('main-navi', MainNavi);
+Vue.component('main-header', MainHeader)
+Vue.component('main-footer', MainFooter)
+Vue.component('main-body', MainBody)
+Vue.component('main-navi', MainNavi)
 
 Vue.use(VueI18n);
 const i18n = new VueI18n({

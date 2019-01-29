@@ -6,10 +6,10 @@
       <main-navi></main-navi>
       <div id="container">
         <!-- Header -->
-        <main-header></main-header> 
+        <main-header></main-header>
         <!-- Body -->
         <main-body></main-body>
-      </div>  
+      </div>
     </div>
 
     <!-- Footer -->
@@ -29,4 +29,3 @@
 #container{position:relative;float:right;width:718px;}
 
 </style>
-

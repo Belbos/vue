@@ -2,7 +2,7 @@
   <div class="snb">
     <h1 class="logo">
         <router-link to="/">
-            <strong>윤리경영</strong></a>
+            <strong>윤리경영</strong>
             <span>GLOBAL CODE OF CONDUCT</span>
         </router-link>
     </h1>
